@@ -21,6 +21,7 @@ class Home extends Component {
           reload.
         </p>
         <Link to="/about">About -></Link>
+        
       </div>
     );
   }
