@@ -1,0 +1,23 @@
+{
+  "name": "ecommerce-product-list-page",
+  "version": "1.0.0",
+  "description": "Responsive layout of product list page having filter capability based on price and size etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balramsinghindia/ecommerce-product-list-page.git"
+  },
+  "keywords": [
+    "ecommerce",
+    "React"
+  ],
+  "author": "Balram Singh <singhbalram786@gmail.com> (http://balramsingh.in)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balramsinghindia/ecommerce-product-list-page/issues"
+  },
+  "homepage": "https://github.com/balramsinghindia/ecommerce-product-list-page#readme"
+}
