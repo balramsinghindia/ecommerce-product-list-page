@@ -1,1 +1,1 @@
-# ecommerce-product-list-page
+# E-commerce Product List Page
