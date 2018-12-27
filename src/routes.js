@@ -7,16 +7,8 @@ export default [
     path: '/',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./components/templates/Home'), // required
-      Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
-    }),
-  },
-  {
-    path: '/about',
-    exact: true,
-    component: asyncComponent({
-      loader: () => import('./components/templates/About'), // required
-      Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
+      loader: () => import('./components/templates/ListPage'),
+      Placeholder: () => <div>...LOADING...</div>,
     }),
   },
 ];

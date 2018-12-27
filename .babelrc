@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "razzle/babel"
+   ],
+   "plugins": [
+     ["module-resolver", {
+        "root": ["./src"],
+        "alias": {
+          "common": "./src/common"
+        }
+      }]
+   ]
+}
