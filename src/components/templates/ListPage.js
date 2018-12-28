@@ -1,35 +1,60 @@
-import React, { Component } from 'react';
-import logo from './react.svg';
-import HomeStyle from './ListPage.style';
-import withStyle from "common";
-import { Link } from 'react-router-dom';
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from "prop-types";
+
+import fetch from 'node-fetch';
 import styled from 'styled-components';
+import { services, config, locale } from 'global';
+import { ProductsHeader, ProductsList } from 'components/organisms';
 
-class Home extends Component {
-  static async getInitialProps({ req, res, match, history, location, ...ctx }) {
-    return { stuff: 'whatevs' };
+const propTypes = {
+  products: PropTypes.array.isRequired,
+};
+
+const defaultProps = {
+  products: [],
+};
+
+class ListPage extends PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterdProducts:[],
+      products:[]
+    }
+    this.filterProductsBasedOnSize = this.filterProductsBasedOnSize.bind(this);
   }
-  render() {
-    console.log(this.props);
-    return (
-        <Ab className="Home">
-          <div className="Home-header">
-            <img src={logo} className="Home-logo" alt="logo" />
-            <div>Welcomse to After.js</div>
-          </div>
-          <p className="Home-intro">
-            To get started, edit
-            <code>src/Home.js</code> or <code>src/About.js</code>and save to
-            reload.
-          </p>
-          <Link to="/about">About -></Link>
 
-        </Ab>
+  componentDidMount() {
+    this.setState({
+      products: this.props.products
+    });
+  }
+
+  filterProductsBasedOnSize(size) {
+    let products = this.state.products;
+    const filterdProducts = products.filter(product => product.size.includes(size));
+    this.setState({
+      filterdProducts
+    });
+  }
+
+
+  render() {
+    const { products, filterdProducts } = this.state;
+    return (
+        <Fragment>
+            <ProductsHeader productCategory={locale.categoryPage.heading} filterProducts={this.filterProductsBasedOnSize} filterSizes={config.productSizes}/>
+            <ProductsList productsData={filterdProducts.length > 0 ? filterdProducts : products}/>
+        </Fragment>
     );
   }
 }
 
-export default Home;
+ListPage.propTypes = propTypes;
+ListPage.defaultProps = defaultProps;
+
+export default ListPage;
 const Ab = styled.div`
   color: red;
 
@@ -37,3 +62,16 @@ const Ab = styled.div`
     color: black;
   }
 `;
+
+
+ListPage.getInitialProps = async ({ req }) => {
+  try {
+    const res = await fetch(services.getProductsList);
+    const products = await res.json();
+    return {
+      products
+    };
+  } catch (e) {
+    return ({error:locale.error.serverError});
+  }
+};

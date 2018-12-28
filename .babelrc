@@ -6,7 +6,9 @@
      ["module-resolver", {
         "root": ["./src"],
         "alias": {
-          "common": "./src/common"
+          "common": "./src/common",
+          "global": "./src/global",
+          "components": "./src/components"
         }
       }]
    ]
