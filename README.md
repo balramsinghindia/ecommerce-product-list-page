@@ -104,7 +104,7 @@ Styled components use the best bits of ES6 and CSS to style your apps. It allows
 
 ## Further Improvements
 - i18n
-- quality checks (Unit test cases, Sonar)
+- Quality checks (Unit test cases, Sonar)
 - Performance check
 - Accessibility check
 - Security check
