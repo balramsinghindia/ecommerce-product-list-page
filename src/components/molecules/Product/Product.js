@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { Image, Tag } from 'components/atoms';
 
 /**
   * @desc Product component can be used to render each product
@@ -17,9 +18,22 @@ const defaultProps = {
 const Product = React.memo(props => {
   const { product } = props;
   return (
-    <div className="product">
-      {product.productName}
-    </div>
+      <li className='product'>
+       <Image
+         src={'products/' + product.productImage}
+         alt={product.productName}
+       />
+       <div>
+         {product.isExclusive && (
+           <Tag tagType='exclusive-tag' tagLabel="Exclusive" />
+         )}
+         {product.isSale && <Tag tagType='sale-tag' tagLabel="Sale" />}
+         <div className='product-description'>
+           <div className='product-name'>{product.productName}</div>
+           <div className='product-price'>{product.price}</div>
+         </div>
+       </div>
+     </li>
   );
 });
 

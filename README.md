@@ -16,6 +16,9 @@ Integration test
 Pa11y
 Sonar
 ZAP - security
-Jenkins
+
+## CI
+Add Jenkins file
+Install Jenkins
 Kubernetes
 docker for npm packages

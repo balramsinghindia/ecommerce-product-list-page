@@ -3,13 +3,12 @@ import { render } from '@jaredpalmer/after';
 import routes from './routes';
 import MyDocument from './Document';
 import products from '../static/products.json';
-
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
 server
   .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+  .use(express.static('src/assets'))
 
   .get('/products', (req, res) => {
     res.json(products)

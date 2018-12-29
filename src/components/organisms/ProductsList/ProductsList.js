@@ -17,9 +17,9 @@ const defaultProps = {
 const ProductsList = React.memo(props => {
   const { productsData } = props;
   return (
-    <Fragment>
+    <ul>
         {productsData.map(product => <Product product={product} key={product.index} />)}
-    </Fragment>
+    </ul>
   );
 });
 
