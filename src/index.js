@@ -9,7 +9,7 @@ let currentApp = app;
   * @desc index.js file is used to create server and implement hot reload module
 */
 
-server.listen(process.env.PORT || 3000, error => {
+server.listen(process.env.PORT || 5000, error => {
   if (error) {
     console.log(error);
   }
