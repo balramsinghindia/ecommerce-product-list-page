@@ -1,37 +1,27 @@
-import { css } from "styled-components";
+import styled from 'styled-components';
+import themeColors from 'styles/theme/color';
 
-export default css`
-  text-align: center;
-  .Home-logo {
-    animation: logo-spin infinite 20s linear;
-    height: 80px;
+const ListStyle = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1320px;
+  margin: 0 auto;
+  color: ${themeColors.defaultColor};
+
+  ul {
+    padding: 0;
+    margin: 0;
   }
 
-  .Home-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-  }
-
-  .Home-intro {
-    font-size: large;
-  }
-
-  .Home-resources {
-    list-style: none;
-  }
-
-  .Home-resources > li {
-    display: inline-block;
-    padding: 1rem;
-  }
-
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
+  .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
     }
 `;
+
+export default ListStyle;

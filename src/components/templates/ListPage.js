@@ -1,10 +1,10 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 
 import fetch from 'node-fetch';
-import styled from 'styled-components';
 import { services, config, locale } from 'global';
 import { ProductsHeader, ProductsList } from 'components/organisms';
+import ListStyle from './ListPage.style.js';
 
 const propTypes = {
   products: PropTypes.array.isRequired,
@@ -43,26 +43,16 @@ class ListPage extends PureComponent {
   render() {
     const { products, filterdProducts } = this.state;
     return (
-        <Fragment>
+        <ListStyle>
             <ProductsHeader productCategory={locale.categoryPage.heading} filterProducts={this.filterProductsBasedOnSize} filterSizes={config.productSizes}/>
             <ProductsList productsData={filterdProducts.length > 0 ? filterdProducts : products}/>
-        </Fragment>
+        </ListStyle>
     );
   }
 }
 
 ListPage.propTypes = propTypes;
 ListPage.defaultProps = defaultProps;
-
-export default ListPage;
-const Ab = styled.div`
-  color: red;
-
-  .Home-header {
-    color: black;
-  }
-`;
-
 
 ListPage.getInitialProps = async ({ req }) => {
   try {
@@ -75,3 +65,5 @@ ListPage.getInitialProps = async ({ req }) => {
     return ({error:locale.error.serverError});
   }
 };
+
+export default ListPage;

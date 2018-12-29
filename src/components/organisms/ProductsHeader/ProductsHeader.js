@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import { SizeFilter } from 'components/molecules';
 import { noop } from 'global';
+import ProductsHeaderStyle from './ProductsHeader.style';
 
 /**
   * @desc ProductsHeader component is a organism consist of Product Category Heading and Size filter component.
@@ -34,10 +35,10 @@ class ProductsHeader extends PureComponent {
   render () {
   const { productCategory, filterSizes } = this.props;
   return (
-    <div className="container">
-      <h1 className="category">{productCategory}</h1>
+    <ProductsHeaderStyle>
+      <h2>{productCategory}</h2>
       <SizeFilter filterSizes={filterSizes}  filterProducts={this.filterProducts} />
-    </div>
+    </ProductsHeaderStyle>
   );
 }
 };

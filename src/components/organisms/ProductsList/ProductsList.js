@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
 import { Product } from 'components/molecules';
+import ProductListStyle from './ProductList.style';
+
 /**
   * @desc ProductsList component can be used to render render list of products.
   *  @productsData : contains array of products information
@@ -17,9 +19,9 @@ const defaultProps = {
 const ProductsList = React.memo(props => {
   const { productsData } = props;
   return (
-    <ul>
+    <ProductListStyle>
         {productsData.map(product => <Product product={product} key={product.index} />)}
-    </ul>
+    </ProductListStyle>
   );
 });
 

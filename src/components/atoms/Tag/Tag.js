@@ -14,7 +14,7 @@ const propTypes = {
 
 const defaultProps = {
   tagLabel: 'Sale',
-  tagType: 'sale',
+  tagType: 'sale-tag',
 };
 
 const Tag = React.memo(props => {

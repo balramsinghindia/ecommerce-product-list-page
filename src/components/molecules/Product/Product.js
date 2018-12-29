@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, Tag } from 'components/atoms';
+import { withStyle } from 'global';
+import ProductStyle from './Product.style';
+
 
 /**
   * @desc Product component can be used to render each product
@@ -18,22 +21,23 @@ const defaultProps = {
 const Product = React.memo(props => {
   const { product } = props;
   return (
-      <li className='product'>
-       <Image
-         src={'products/' + product.productImage}
-         alt={product.productName}
-       />
-       <div>
-         {product.isExclusive && (
-           <Tag tagType='exclusive-tag' tagLabel="Exclusive" />
-         )}
-         {product.isSale && <Tag tagType='sale-tag' tagLabel="Sale" />}
-         <div className='product-description'>
-           <div className='product-name'>{product.productName}</div>
-           <div className='product-price'>{product.price}</div>
+
+        <li className='product'>
+         <Image
+           src={'products/' + product.productImage}
+           alt={product.productName}
+         />
+         <div>
+           {product.isExclusive && (
+             <Tag tagType='exclusive-tag' tagLabel="Exclusive" />
+           )}
+           {product.isSale && <Tag tagType='sale-tag' tagLabel="Sale" />}
+           <div className='product-description'>
+             <div className='product-name'>{product.productName}</div>
+             <div className='product-price'>{product.price}</div>
+           </div>
          </div>
-       </div>
-     </li>
+       </li>
   );
 });
 
@@ -41,4 +45,4 @@ const Product = React.memo(props => {
 Product.propTypes = propTypes;
 Product.defaultProps = defaultProps;
 
-export default Product;
+export default withStyle(Product, ProductStyle);
