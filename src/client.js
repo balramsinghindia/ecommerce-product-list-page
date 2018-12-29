@@ -5,6 +5,10 @@ import { ensureReady, After } from '@jaredpalmer/after';
 
 import routes from './routes';
 
+/**
+  * @desc client.js renders client side application
+*/
+
 ensureReady(routes).then(data =>
   hydrate(
     <BrowserRouter>

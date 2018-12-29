@@ -2,6 +2,10 @@ import React from 'react';
 
 import { asyncComponent } from '@jaredpalmer/after';
 
+/**
+  * @desc routes.js handles URL and component mapping
+*/
+
 export default [
   {
     path: '/',

@@ -1,7 +1,12 @@
-// ./src/Document.js
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components'
 import { AfterRoot, AfterData } from '@jaredpalmer/after';
+
+/**
+  * @desc Document component is used for overiding HTML document struture, this
+  *  file is provided by AfterJS library to modify HTML document when using
+  *  AfterJS with Styled Components
+*/
 
 export default class Document extends React.Component {
   static async getInitialProps({ assets, data, renderPage }) {
