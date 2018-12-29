@@ -1,3 +1,7 @@
+/**
+  * @desc config.js contains app specific configuration
+*/
+
 export default {
   productSizes : [
     {

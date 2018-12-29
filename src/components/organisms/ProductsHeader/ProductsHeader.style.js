@@ -7,9 +7,14 @@ export default styled.div`
   display: flex;
   justify-content: space-between;
   padding: 15px 10px;
-  margin: 25px 18px 10px 16px;
+  margin: 30px 0 10px;
 
   h2 {
     margin: 0;
+  }
+
+  .size-filter select {
+    font-size: 14px;
+    width: 170px;
   }
 `;

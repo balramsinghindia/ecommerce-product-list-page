@@ -3,14 +3,9 @@ import themeColors from 'styles/theme/color';
 
 const ListStyle = styled.div`
   font-family: Arial, Helvetica, sans-serif;
-  max-width: 1320px;
+  max-width: 1204px;
   margin: 0 auto;
   color: ${themeColors.defaultColor};
-
-  ul {
-    padding: 0;
-    margin: 0;
-  }
 
   .sr-only {
       position: absolute;

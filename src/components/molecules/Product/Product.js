@@ -7,7 +7,8 @@ import ProductStyle from './Product.style';
 
 /**
   * @desc Product component can be used to render each product
-  *  This component will render product details such as Product name, size, price, product image, sale and exclusive etc
+  *  This component will render product details such as Product name, size,
+  *  price, product image, sale and exclusive etc
   *  @product : product object contains details of product
 */
 const propTypes = {
@@ -15,19 +16,18 @@ const propTypes = {
 };
 
 const defaultProps = {
-  product: {}
+  product: {},
 };
 
 const Product = React.memo(props => {
   const { product } = props;
   return (
-
-        <li className='product'>
+    <ProductStyle>
          <Image
            src={'products/' + product.productImage}
            alt={product.productName}
          />
-         <div>
+       <div className="product-details">
            {product.isExclusive && (
              <Tag tagType='exclusive-tag' tagLabel="Exclusive" />
            )}
@@ -36,8 +36,8 @@ const Product = React.memo(props => {
              <div className='product-name'>{product.productName}</div>
              <div className='product-price'>{product.price}</div>
            </div>
-         </div>
-       </li>
+        </div>
+    </ProductStyle>
   );
 });
 

@@ -20,7 +20,12 @@ const ProductsList = React.memo(props => {
   const { productsData } = props;
   return (
     <ProductListStyle>
-        {productsData.map(product => <Product product={product} key={product.index} />)}
+        {productsData.map(product =>
+          <Product
+            product={product}
+            key={product.index}
+          />
+        )}
     </ProductListStyle>
   );
 });

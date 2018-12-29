@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Dropdown } from 'components/atoms';
 import { noop } from 'global';
 
@@ -26,7 +26,7 @@ const SizeFilter = React.memo(props => {
     <Dropdown
       options={filterSizes}
       onSelect={selected => filterProducts(selected)}
-      className="size-filter"
+      className='size-filter'
     />
   );
 });

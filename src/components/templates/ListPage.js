@@ -14,6 +14,14 @@ const defaultProps = {
   products: [],
 };
 
+/**
+  * @desc ListPage component can be used to render Women's top products along
+  *  with size filter
+  * products: products JSON is received from backend
+  * filterdProducts: filterProducts are products filterd based on size. Finally
+  * they are sent to ProductList component to render filtered products.
+*/
+
 class ListPage extends PureComponent {
 
   constructor(props) {
@@ -33,7 +41,9 @@ class ListPage extends PureComponent {
 
   filterProductsBasedOnSize(size) {
     let products = this.state.products;
-    const filterdProducts = products.filter(product => product.size.includes(size));
+    const filterdProducts = products.filter(product =>
+      product.size.includes(size)
+    );
     this.setState({
       filterdProducts
     });
@@ -44,8 +54,18 @@ class ListPage extends PureComponent {
     const { products, filterdProducts } = this.state;
     return (
         <ListStyle>
-            <ProductsHeader productCategory={locale.categoryPage.heading} filterProducts={this.filterProductsBasedOnSize} filterSizes={config.productSizes}/>
-            <ProductsList productsData={filterdProducts.length > 0 ? filterdProducts : products}/>
+            <ProductsHeader
+              productCategory={locale.categoryPage.heading}
+              filterProducts={this.filterProductsBasedOnSize}
+              filterSizes={config.productSizes}
+            />
+            <ProductsList
+              productsData={
+                filterdProducts.length > 0
+                ? filterdProducts
+                : products
+              }
+            />
         </ListStyle>
     );
   }

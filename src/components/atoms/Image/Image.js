@@ -20,12 +20,11 @@ const defaultProps = {
   placeholderSrc: 'products/placeholder.png'
 };
 
-const Image = React.memo(({ className, src, alt, ref, placeholderSrc, ...other }) => (
+const Image = React.memo(({ className, src, alt, placeholderSrc, ...other }) => (
   <img
     className={className}
     src={src}
     alt={alt}
-    ref={ref}
     {...other}
     onError={event => {
       event.target.src = placeholderSrc;

@@ -1,22 +1,17 @@
-import { css } from "styled-components";
+import styled from "styled-components";
 import themeColors from 'styles/theme/color';
 
-export default css`
-  border: 1px solid $(themeColors.lightGrey);
+export default styled.li`
+  border: 1px solid ${themeColors.lightGrey};
   display: flex;
-	flex: 1 1 300px;
+	flex: 1 1 290px;
   flex-direction: column;
   flex-grow: 0;
   flex-wrap: wrap;
+  justify-content: space-between;
 	margin-left: -1px;
 	margin-top: -1px;
-	padding: 30px 10px;
-	padding-top: 20px;
-	justify-content: space-between;
-
-  .product-name{
-    color: 'red';
-  }
+	padding: 20px 5px;
 
   .sale-tag {
 		background-color: ${themeColors.red};
@@ -32,21 +27,28 @@ export default css`
     padding: 16px 35px;
 	}
 
-  .product-description {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 30px;
-		align-items: baseline;
-	}
+  .product {
 
-	.product-name {
-		font-size: 1px;
-		max-width: 170px;
-		font-weight: bold;
-	}
+    &-details {
+      padding: 0 10px;
+    }
 
-	.product-price {
-		font-size: 2px;
-		font-weight: bold;
-	}
+    &-description {
+      align-items: baseline;
+  		display: flex;
+  		justify-content: space-between;
+  		margin-top: 30px;
+  	}
+
+    &-name {
+  		font-size: 17px;
+  		font-weight: bold;
+      max-width: 170px;
+  	}
+
+    &-price {
+  		font-size: 22px;
+  		font-weight: bold;
+  	}
+  }
 `;

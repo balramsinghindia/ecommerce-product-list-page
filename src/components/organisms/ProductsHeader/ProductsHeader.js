@@ -5,15 +5,16 @@ import { noop } from 'global';
 import ProductsHeaderStyle from './ProductsHeader.style';
 
 /**
-  * @desc ProductsHeader component is a organism consist of Product Category Heading and Size filter component.
+  * @desc ProductsHeader component is a organism consist of Product Category
+  *  Heading and Size filter component.
   *  productCategory is name of Product Category. filterSizes is array of sizes
-  *  filterProducts : filterProducts method is used to filter products based on size
+  *  filterProducts : this method is used to filter products based on size
 */
 
 const propTypes = {
   productCategory: PropTypes.string,
   filterSizes: PropTypes.array.isRequired,
-  filterProducts: PropTypes.func,
+  filterProducts: PropTypes.func
 };
 
 const defaultProps = {
@@ -37,12 +38,15 @@ class ProductsHeader extends PureComponent {
   return (
     <ProductsHeaderStyle>
       <h2>{productCategory}</h2>
-      <SizeFilter filterSizes={filterSizes}  filterProducts={this.filterProducts} />
+      <SizeFilter
+        filterSizes={filterSizes}
+        filterProducts={this.filterProducts}
+        className='size-filter'
+      />
     </ProductsHeaderStyle>
   );
 }
 };
-
 
 ProductsHeader.propTypes = propTypes;
 ProductsHeader.defaultProps = defaultProps;
