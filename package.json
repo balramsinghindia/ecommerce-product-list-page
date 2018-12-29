@@ -4,9 +4,9 @@
   "description": "Responsive layout of product list page having filter capability based on price and size etc",
   "main": "index.js",
   "scripts": {
-    "dev": "razzle start",
+    "start": "razzle start",
     "build": "razzle build",
-    "start": "NODE_ENV=production node build/server.js"
+    "build-production": "NODE_ENV=production node build/server.js"
   },
   "repository": "git+https://github.com/balramsinghindia/ecommerce-product-list-page.git",
   "keywords": [
