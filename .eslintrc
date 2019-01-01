@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "extends": ["airbnb"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+  },
+  "globals": {
+    "document": true,
+    "window": true
+  }
+}

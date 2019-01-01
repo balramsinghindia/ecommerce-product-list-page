@@ -18,7 +18,7 @@ const Image = React.memo(({
     src={src}
     alt={alt}
     {...other}
-    onError={(e)=>{e.target.onerror = null; e.target.src=placeholderSrc}}
+    onError={(e) => { e.target.onerror = null; e.target.src = placeholderSrc; }}
   />
 
 ));

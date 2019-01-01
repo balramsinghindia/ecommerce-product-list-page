@@ -72,7 +72,7 @@ ListPage.propTypes = {
 };
 
 
-ListPage.getInitialProps = async ({ req }) => {
+ListPage.getInitialProps = async () => {
   try {
     const res = await fetch(services.getProductsList);
     const products = await res.json();
