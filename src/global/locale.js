@@ -3,11 +3,21 @@
   * also be used to implement i18n.
 */
 
-export default{
-  categoryPage: {
-    heading: 'Women\'s tops',
+export default {
+  global: {
+    loading: '...LOADING...',
   },
   error: {
     serverError: 'Error occured while fetching response',
+  },
+  categoryPage: {
+    heading: 'Women\'s tops',
+  },
+  tags: {
+    tagLabel: 'Sale',
+  },
+  product: {
+    exclusive: 'Exclusive',
+    sale: 'Sale',
   },
 };

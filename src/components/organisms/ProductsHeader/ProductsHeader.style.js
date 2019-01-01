@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import themeColors from 'styles/theme/color';
 
 export default styled.div`

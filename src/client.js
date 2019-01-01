@@ -9,15 +9,7 @@ import routes from './routes';
   * @desc client.js renders client side application
 */
 
-ensureReady(routes).then(data =>
-  hydrate(
-    <BrowserRouter>
-      <After data={data} routes={routes} />
-    </BrowserRouter>,
-    document.getElementById('root')
-  )
-);
-
+ensureReady(routes).then(data => hydrate(<BrowserRouter><After data={data} routes={routes} /></BrowserRouter>, document.getElementById('root')));
 if (module.hot) {
   module.hot.accept();
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components';
+import PropTypes from 'prop-types';
 import { AfterRoot, AfterData } from '@jaredpalmer/after';
 
 /**
@@ -13,7 +14,12 @@ export default class Document extends React.Component {
     const sheet = new ServerStyleSheet()
     const page = await renderPage(App => props => sheet.collectStyles(<App {...props} />))
     const styleTags = sheet.getStyleElement()
-    return { assets, data, ...page, styleTags};
+    return {
+      assets,
+      data,
+      ...page,
+      styleTags,
+    };
   }
 
  render() {
@@ -37,7 +43,7 @@ export default class Document extends React.Component {
         </head>
         <body {...bodyAttrs}>
           <AfterRoot />
-          <AfterData data={data}/>
+          <AfterData data={data} />
           <script
             type="text/javascript"
             src={assets.client.js}
@@ -49,3 +55,17 @@ export default class Document extends React.Component {
     );
   }
 }
+
+Document.propTypes = {
+  helmet: PropTypes.object,
+  assets: PropTypes.object,
+  data: PropTypes.object,
+  styleTags: PropTypes.array,
+};
+
+Document.defaultProps = {
+  helmet: {},
+  assets: {},
+  data: {},
+  styleTags: {},
+};

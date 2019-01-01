@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 /**
   * @desc Tag component can be used to display tags associated with each product.
@@ -7,22 +7,15 @@ import PropTypes from "prop-types";
   *  @tagType : can be either sale or exclusive
 */
 
-const propTypes = {
+const Tag = React.memo(({ tagLabel, tagType }) => <div className={tagType}>{tagLabel}</div>);
+
+Tag.propTypes = {
   tagLabel: PropTypes.string.isRequired,
-  tagType: PropTypes.string
+  tagType: PropTypes.string,
 };
 
-const defaultProps = {
-  tagLabel: 'Sale',
+Tag.defaultProps = {
   tagType: 'sale-tag',
 };
-
-const Tag = React.memo(props => {
-  const { tagLabel, tagType } = props;
-  return <div className={tagType}>{tagLabel}</div>;
-});
-
-Tag.propTypes = propTypes;
-Tag.defaultProps = defaultProps;
 
 export default Tag;

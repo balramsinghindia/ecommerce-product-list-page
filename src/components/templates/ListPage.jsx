@@ -1,18 +1,10 @@
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 import fetch from 'node-fetch';
 import { services, config, locale } from 'global';
 import { ProductsHeader, ProductsList } from 'components/organisms';
-import ListStyle from './ListPage.style.js';
-
-const propTypes = {
-  products: PropTypes.array.isRequired,
-};
-
-const defaultProps = {
-  products: [],
-};
+import ListStyle from './ListPage.style';
 
 /**
   * @desc ListPage component can be used to render Women's top products along
@@ -23,29 +15,27 @@ const defaultProps = {
 */
 
 class ListPage extends PureComponent {
-
   constructor(props) {
     super(props);
     this.state = {
-      filterdProducts:[],
-      products:[]
-    }
+      filterdProducts: [],
+      products: [],
+    };
     this.filterProductsBasedOnSize = this.filterProductsBasedOnSize.bind(this);
   }
 
   componentDidMount() {
+    const { products } = this.props;
     this.setState({
-      products: this.props.products
+      products,
     });
   }
 
   filterProductsBasedOnSize(size) {
-    let products = this.state.products;
-    const filterdProducts = products.filter(product =>
-      product.size.includes(size)
-    );
+    const { products } = this.state;
+    const filterdProducts = products.filter(product => product.size.includes(size));
     this.setState({
-      filterdProducts
+      filterdProducts,
     });
   }
 
@@ -53,36 +43,44 @@ class ListPage extends PureComponent {
   render() {
     const { products, filterdProducts } = this.state;
     return (
-        <ListStyle>
-            <ProductsHeader
-              productCategory={locale.categoryPage.heading}
-              filterProducts={this.filterProductsBasedOnSize}
-              filterSizes={config.productSizes}
-            />
-            <ProductsList
-              productsData={
-                filterdProducts.length > 0
-                ? filterdProducts
-                : products
-              }
-            />
-        </ListStyle>
+      <ListStyle>
+        <ProductsHeader
+          productCategory={locale.categoryPage.heading}
+          filterProducts={this.filterProductsBasedOnSize}
+          filterSizes={config.productSizes}
+        />
+        <ProductsList
+          productsData={
+           filterdProducts.length ? filterdProducts : products
+          }
+        />
+      </ListStyle>
     );
   }
 }
 
-ListPage.propTypes = propTypes;
-ListPage.defaultProps = defaultProps;
+ListPage.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      productImage: PropTypes.string.isRequired,
+      productName: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      isExclusive: PropTypes.bool.isRequired,
+      isSale: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
+};
+
 
 ListPage.getInitialProps = async ({ req }) => {
   try {
     const res = await fetch(services.getProductsList);
     const products = await res.json();
     return {
-      products
+      products,
     };
   } catch (e) {
-    return ({error:locale.error.serverError});
+    return ({ error: locale.error.serverError });
   }
 };
 

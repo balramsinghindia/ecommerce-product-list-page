@@ -3,30 +3,30 @@
 */
 
 export default {
-  productSizes : [
+  productSizes: [
     {
       label: 'Filter by size',
-      value: ''
+      value: '',
     },
     {
       label: 'XS',
-      value: 'XS'
+      value: 'XS',
     },
     {
       label: 'S',
-      value: 'S'
+      value: 'S',
     },
     {
       label: 'M',
-      value: 'M'
+      value: 'M',
     },
     {
       label: 'L',
-      value: 'L'
+      value: 'L',
     },
     {
       label: 'XL',
-      value: 'XL'
-    }
-  ]
-}
+      value: 'XL',
+    },
+  ],
+};

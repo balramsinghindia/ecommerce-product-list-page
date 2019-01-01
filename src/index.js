@@ -1,5 +1,5 @@
-import app from './server';
 import http from 'http';
+import app from './server';
 
 const server = http.createServer(app);
 
@@ -9,13 +9,11 @@ let currentApp = app;
   * @desc index.js file is used to create server and implement hot reload module
 */
 
-server.listen(process.env.PORT || 3000, error => {
+server.listen(process.env.PORT || 3000, error => ({
   if (error) {
     console.log(error);
   }
-
-  console.log('🚀 started');
-});
+}));
 
 if (module.hot) {
   console.log('✅  Server-side HMR Enabled!');

@@ -3,5 +3,5 @@ import ProductsList from './ProductsList/ProductsList';
 
 export {
   ProductsHeader,
-  ProductsList
+  ProductsList,
 };

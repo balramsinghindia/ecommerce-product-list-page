@@ -103,6 +103,7 @@ Styled components use the best bits of ES6 and CSS to style your apps. It allows
 
 
 ## Further Improvements
+- API interceptor to handle errors and exceptions from single place
 - i18n
 - Quality checks (Unit test cases, Sonar)
 - Performance check
