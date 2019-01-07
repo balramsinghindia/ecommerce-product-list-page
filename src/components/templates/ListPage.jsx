@@ -33,6 +33,7 @@ class ListPage extends PureComponent {
 
   filterProductsBasedOnSize(size) {
     const { products } = this.state;
+    // Add Array.includes Polyfill to run the application in IE
     const filterdProducts = products.filter(product => product.size.includes(size));
     this.setState({
       filterdProducts,
